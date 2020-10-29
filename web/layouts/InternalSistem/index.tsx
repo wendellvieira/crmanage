@@ -4,12 +4,29 @@ import Head from 'next/head'
 
 import { Layout, Menu, Breadcrumb } from 'antd'
 import MapedMenu from './maped-menu'
+import styled from 'styled-components'
 
 type ComponentProps = {
     title: string
     icon?: IconType
     children: ReactNode
 }
+
+const CntTitlePage = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1.5em;
+
+    svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    h2 {
+        margin: 0;
+    }
+`
 
 export default function InternalSistem({
     children,
@@ -47,10 +64,12 @@ export default function InternalSistem({
 
             <Layout className="site-layout">
                 <Layout.Header className="bg-white" style={{ padding: 0 }}>
-                    <div className="cnt-page-title">
-                        {PageIcon && <PageIcon className="mr-4" />}
-                        <h2 className="ml-4">{title}</h2>
-                    </div>
+                    <CntTitlePage>
+                        {PageIcon && (
+                            <PageIcon className="mr-3" color="#245db1" />
+                        )}
+                        <h2>{title}</h2>
+                    </CntTitlePage>
                 </Layout.Header>
                 <Layout.Content style={{ margin: '0 16px' }}>
                     <Breadcrumb style={{ margin: '16px 0' }}>
