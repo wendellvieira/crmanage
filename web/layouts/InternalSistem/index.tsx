@@ -71,11 +71,11 @@ export default function InternalSistem({
                         <h2>{title}</h2>
                     </CntTitlePage>
                 </Layout.Header>
-                <Layout.Content style={{ margin: '0 16px' }}>
-                    <Breadcrumb style={{ margin: '16px 0' }}>
+                <Layout.Content style={{ margin: '0 16px', paddingTop: '2em' }}>
+                    {/* <Breadcrumb style={{ margin: '16px 0' }}>
                         <Breadcrumb.Item>User</Breadcrumb.Item>
                         <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                    </Breadcrumb>
+                    </Breadcrumb> */}
 
                     {children}
                 </Layout.Content>
