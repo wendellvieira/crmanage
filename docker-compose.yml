@@ -1,17 +1,43 @@
-version: '2'
+version: '3.7'
 
 services:
-  # mongo:
-  #   image: bitnami/mongodb:4.4-debian-10
-  #   container_name: crm_db
-  #   ports: 
-  #     - 27017:27017
+  mongo:
+    image: mongo:4.0.20-xenial
+    container_name: CRM_DB
+    ports:
+      - 27017:27017
+    networks:
+      - webnet
+
+  backend:
+    build:
+      context: ./backend
+      target: development
+    container_name: CRM_BACKEND
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
+      - 9229:9229
+    command: npm run start:dev
+    networks:
+      - webnet
+    depends_on:
+      - mongo
+
 
   # web:
   #   image: bitnami/node:13-debian-10
   #   container_name: crm_web
-  #   entrypoint: ["npx", "next", "dev"]
-  #   volumes: 
+  #   command: npx next dev
+  #   volumes:
   #     - ./web:/app
+  #     - /usr/src/app/node_modules
   #   ports:
-  #     - 3000:3000 
+  #     - 3000:8080
+  # networks:
+  #   - webnet
+
+networks:
+  webnet:
