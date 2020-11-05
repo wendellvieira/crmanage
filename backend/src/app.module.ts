@@ -1,23 +1,14 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-// import { CustomersModule } from './customers/customers.module';
+import { TypeOrmConnection, GqlSettings } from "./config"
+import { CustomersModule } from './api/customers/customers.module';
 
 @Module({
     imports: [
-        TypeOrmModule.forRoot({
-            type: 'mongodb',
-            url: 'mongodb://mongo:27017/crmanage',
-            entities: [],
-            synchronize: true,
-            autoLoadEntities: true,
-            useUnifiedTopology: true
-        }),
-        GraphQLModule.forRoot({
-            autoSchemaFile: true,
-            playground: true
-        }),
-        // CustomersModule,
+        TypeOrmModule.forRoot( TypeOrmConnection ),
+        GraphQLModule.forRoot( GqlSettings ),
+        CustomersModule
     ],
 })
 export class AppModule {}
