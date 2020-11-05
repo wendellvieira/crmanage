@@ -2,7 +2,7 @@ import React, { ReactNode, useState } from 'react'
 import { IconType } from 'react-icons/lib/esm'
 import Head from 'next/head'
 
-import { Layout, Menu, Breadcrumb } from 'antd'
+import { Layout, Menu } from 'antd'
 import MapedMenu from './maped-menu'
 import styled from 'styled-components'
 

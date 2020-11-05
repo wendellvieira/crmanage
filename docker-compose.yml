@@ -6,8 +6,6 @@ services:
     container_name: CRM_DB
     ports:
       - 27017:27017
-    networks:
-      - webnet
 
   backend:
     build:
@@ -20,23 +18,20 @@ services:
     ports:
       - 3000:3000
     command: npm run start:dev
-    networks:
-      - webnet
     depends_on:
       - mongo
 
 
   # web:
-  #   image: bitnami/node:13-debian-10
+  #   build:
+  #     context: ./web
+  #     target: development
   #   container_name: crm_web
-  #   command: npx next dev
+  #   command: npm run dev -p 8080
   #   volumes:
-  #     - ./web:/app
+  #     - ./web:/usr/src/app
   #     - /usr/src/app/node_modules
   #   ports:
-  #     - 3000:8080
-  # networks:
-  #   - webnet
-
-networks:
-  webnet:
+  #     - 8080:8080
+  #   # depends_on:
+    #   - backend
