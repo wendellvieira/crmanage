@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 import * as Yup from 'yup'
-import { validate_cpf, validate_cnpj } from 'utils/validate'
+import { validate_cpf, validate_cnpj } from 'src/utils/validate'
 
 export interface Errors {
     [key: string]: string

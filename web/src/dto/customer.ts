@@ -1,5 +1,5 @@
-import Customer from 'interfaces/customer'
-import Yup, { errorTransform } from 'utils/yup'
+import Customer from 'src/interfaces/customer'
+import Yup, { errorTransform } from 'src/utils/yup'
 
 export default {
     bairro: '',
@@ -13,6 +13,7 @@ export default {
     numero: '',
     referencia: '',
     telefone: '',
+    celular: '',
     uf: '',
 } as Customer
 
@@ -41,6 +42,7 @@ const schema = Yup.object<Customer>().shape({
     numero: Yup.string(),
     referencia: Yup.string(),
     telefone: Yup.string(),
+    celular: Yup.string(),
     uf: Yup.string().max(2, 'Informe a abreviação do estado Ex: RJ'),
 })
 

@@ -1,14 +1,18 @@
 export default interface Customer {
+    nome: string
+    email: string
+    cpf: string
+
+    telefone: string
+    celular: string
+
     bairro: string
     cep: string
     complemento: string
-    cpf: string
-    email: string
     localidade: string
     logradouro: string
-    nome: string
     numero: string
-    referencia: string
-    telefone: string
     uf: string
+
+    referencia: string
 }

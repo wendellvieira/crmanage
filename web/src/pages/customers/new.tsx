@@ -1,14 +1,17 @@
 import React, { ChangeEvent, RefObject, useRef, useState } from 'react'
-import InternalSistem from 'layouts/InternalSistem'
+import InternalSistem from 'src/layouts/InternalSistem'
 import { FiUserPlus } from 'react-icons/fi'
 import MaskedInput from 'antd-mask-input'
 
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, message } from 'antd'
 import { Row, Col, Divider } from 'antd'
 import styled from 'styled-components'
-import defaulCustomer, { resetAddress, validate } from 'dto/customer'
-import Customer from 'interfaces/customer'
-import { Errors, ValidationError } from 'utils/yup'
+import defaulCustomer, { resetAddress, validate } from 'src/dto/customer'
+import Customer from 'src/interfaces/customer'
+import { Errors, ValidationError } from 'src/utils/yup'
+
+import { useMutation } from '@apollo/react-hooks'
+import { CREATE_CUSTOMER } from 'src/graphql/customer'
 
 const CntForm = styled.div`
     width: 100%;
@@ -19,13 +22,21 @@ export default function NewCustomers() {
     const [form] = Form.useForm()
     const [erros, setErrors] = useState<Errors>({})
     const [disable, setDisable] = useState(true)
+
+    const [createCustomer, { loading }] = useMutation<Partial<Customer>>(
+        CREATE_CUSTOMER
+    )
+
     const cidade = useRef() as RefObject<Input>
     const numero = useRef() as RefObject<Input>
 
-    const save = async (value: Customer) => {
+    const save = async (variables: Customer) => {
         try {
             setErrors({})
-            await validate(value)
+            await validate(variables)
+            await createCustomer({ variables })
+            form.setFieldsValue(defaulCustomer)
+            message.success('Cliente cadastrado cum sucesso!')
         } catch (err) {
             if (err instanceof ValidationError) err.setState(setErrors)
         }
@@ -145,7 +156,7 @@ export default function NewCustomers() {
                             </Form.Item>
                         </Col>
                     </Row>
-                    <Button htmlType="submit" type="primary">
+                    <Button loading={loading} htmlType="submit" type="primary">
                         Salvar
                     </Button>
                 </Form>

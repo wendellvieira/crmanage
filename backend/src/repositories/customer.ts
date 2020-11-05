@@ -16,6 +16,9 @@ export default class Customer {
     telefone?: string;
 
     @Column()
+    celular?: string;
+
+    @Column()
     cpf?: string;
 
 

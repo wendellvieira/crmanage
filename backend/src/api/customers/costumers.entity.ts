@@ -17,6 +17,9 @@ export class CustomerEntity {
     @Field( () => String, { nullable: true, description: "Customer phone"})
     telefone?: string;
 
+    @Field( () => String, { nullable: true, description: "Customer cell phone"})
+    celular?: string;
+
     @Field( () => String, { nullable: true, description: "Customer document"})
     cpf?: string;
 
