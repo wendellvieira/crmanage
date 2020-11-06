@@ -3,20 +3,16 @@ import InternalSistem from 'src/layouts/InternalSistem'
 import { FiUserPlus } from 'react-icons/fi'
 import MaskedInput from 'antd-mask-input'
 
-import { Form, Input, Button, message } from 'antd'
-import { Row, Col, Divider } from 'antd'
-import styled from 'styled-components'
+import { Form, Input, Button, message, Row, Col, Divider } from 'antd'
+
 import defaulCustomer, { resetAddress, validate } from 'src/dto/customer'
-import Customer from 'src/interfaces/customer'
 import { Errors, ValidationError } from 'src/utils/yup'
 
 import { useMutation } from '@apollo/react-hooks'
-import { CREATE_CUSTOMER } from 'src/graphql/customer'
 
-const CntForm = styled.div`
-    width: 100%;
-    max-width: 600px;
-`
+import Customer from 'src/interfaces/customer'
+import { CREATE_CUSTOMER } from 'src/graphql/customer'
+import { CntForm } from 'src/styles/pages/customers'
 
 export default function NewCustomers() {
     const [form] = Form.useForm()
