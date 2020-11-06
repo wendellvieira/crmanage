@@ -66,7 +66,7 @@ export default function NewCustomers() {
     }
 
     return (
-        <InternalSistem icon={FiUserPlus} title="Cadastrar usuário">
+        <InternalSistem icon={FiUserPlus} title="Cadastrar Cliente">
             <CntForm>
                 <Form
                     form={form}
