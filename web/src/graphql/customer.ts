@@ -37,3 +37,19 @@ export const CREATE_CUSTOMER = gql`
         }
     }
 `
+
+export const LIST_CUSTOMERS = gql`
+    query {
+        customers {
+            id
+            nome
+            cpf
+            telefone
+            celular
+            bairro
+            logradouro
+            referencia
+            numero
+        }
+    }
+`
