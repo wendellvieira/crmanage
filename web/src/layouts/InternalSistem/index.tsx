@@ -2,36 +2,22 @@ import React, { ReactNode, useState } from 'react'
 import { IconType } from 'react-icons/lib/esm'
 import Head from 'next/head'
 
-import { Layout, Menu, Breadcrumb } from 'antd'
-import MapedMenu from './maped-menu'
-import styled from 'styled-components'
+import { Empty, Layout, Menu } from 'antd'
+import MapedMenu from 'src/configs/maped-menu'
+import { CntTitlePage, CntEmpty } from 'src/styles/layouts/internalSistem'
 
 type ComponentProps = {
     title: string
     icon?: IconType
+    empty?: boolean
     children: ReactNode
 }
-
-const CntTitlePage = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 1.5em;
-
-    svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    h2 {
-        margin: 0;
-    }
-`
 
 export default function InternalSistem({
     children,
     title,
     icon: PageIcon,
+    empty,
 }: ComponentProps) {
     const [collapsed, setCollapsed] = useState(false)
 
@@ -72,12 +58,13 @@ export default function InternalSistem({
                     </CntTitlePage>
                 </Layout.Header>
                 <Layout.Content style={{ margin: '0 16px', paddingTop: '2em' }}>
-                    {/* <Breadcrumb style={{ margin: '16px 0' }}>
-                        <Breadcrumb.Item>User</Breadcrumb.Item>
-                        <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                    </Breadcrumb> */}
-
-                    {children}
+                    {!!empty ? (
+                        <CntEmpty>
+                            <Empty description={false} />
+                        </CntEmpty>
+                    ) : (
+                        children
+                    )}
                 </Layout.Content>
             </Layout>
         </Layout>
