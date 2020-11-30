@@ -7,7 +7,7 @@ import PaymentMethods from 'Modules/PaymentMethods'
 import Stock from 'Modules/Stock'
 import CreditBooklets from 'Modules/CreditBooklets'
 
-export default function RouterProvider(): JSX.Element {
+export default function RouterProviderFactory(): JSX.Element {
     return (
         <BrowserRouter>
             <Switch>

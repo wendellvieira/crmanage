@@ -14,3 +14,7 @@ export type ComponentProps = {
     empty?: boolean
     children: ReactNode
 }
+
+export type ChildNode = {
+    children: ReactNode
+}
