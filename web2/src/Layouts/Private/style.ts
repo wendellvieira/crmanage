@@ -22,3 +22,30 @@ export const CntEmpty = styled.div`
     justify-content: center;
     height: 80%;
 `
+export const CntMenu = styled.div`
+    .ant-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        .ant-menu-item {
+            padding-left: 24px;
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            .cnt-menu-text {
+                width: 100%;
+                padding-left: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 8px;
+            }
+        }
+    }
+`

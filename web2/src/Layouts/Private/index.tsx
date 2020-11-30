@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import {Empty, Layout} from 'antd'
 import {CntTitlePage, CntEmpty} from './style'
@@ -11,14 +11,15 @@ export default function InternalSistem({
     icon: PageIcon,
     empty,
 }: ComponentProps): JSX.Element {
-    const [collapsed, setCollapsed] = useState(false)
+    // const [collapsed, setCollapsed] = useState(false)
 
     return (
         <Layout style={{minHeight: '100vh'}}>
             <Layout.Sider
-                collapsible
-                collapsed={collapsed}
-                onCollapse={() => setCollapsed(!collapsed)}>
+            // collapsible
+            // collapsed={collapsed}
+            // onCollapse={() => setCollapsed(!collapsed)}
+            >
                 <Layout.Header style={{padding: 0}} />
 
                 <MappedMenu />
