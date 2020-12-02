@@ -3,16 +3,28 @@ import styled from 'styled-components'
 export const CntTitlePage = styled.div`
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 0 1.5em;
+    height: 62px;
 
-    svg {
-        width: 28px;
-        height: 28px;
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        h2 {
+            margin: 0;
+        }
     }
-
-    h2 {
-        margin: 0;
+    .tools {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
     }
 `
 
