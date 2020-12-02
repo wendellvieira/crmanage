@@ -35,6 +35,7 @@ module.exports = {
         ],
         'no-use-before-define': 'off',
         'import/prefer-default-export': 'off',
+        'no-non-null-assertion': 'off',
         'import/extensions': [
             'error',
             'ignorePackages',
