@@ -13,6 +13,7 @@ export type ComponentProps = {
     icon?: IconType
     empty?: boolean
     children: ReactNode
+    tools?: ReactNode
 }
 
 export type ChildNode = {
