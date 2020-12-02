@@ -7,6 +7,17 @@ export default createGlobalStyle`
     box-sizing: inherit;
     }
 
+    .btn-success {
+        color:#4CAF50;
+        background: #fff;
+        border-color:#4CAF50;
+    }
+    .btn-success:hover, .btn-success:focus {
+        color: #8BC34A;
+        background: #fff;
+        border-color: #8BC34A;
+    }
+
     .bg-white {
         background-color: #fff !important;
     }
