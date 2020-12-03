@@ -26,17 +26,21 @@ services:
       - mongo
 
 
-  # web:
-  #   image: bitnami/node:13-debian-10
-  #   container_name: crm_web
-  #   command: npx next dev
-  #   volumes:
-  #     - ./web:/app
-  #     - /usr/src/app/node_modules
-  #   ports:
-  #     - 3000:8080
-  # networks:
-  #   - webnet
+  web:    
+    container_name: CRM_WEB2
+    build: 
+      context: ./web2
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./web2:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 8080:3000
+    networks:
+      - webnet
+    depends_on:
+      - backend
 
 networks:
   webnet:
