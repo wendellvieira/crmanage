@@ -21,6 +21,7 @@ export type ChildNode = {
 }
 
 export interface Customer {
+    id: string
     nome: string
     email: string
     cpf: string

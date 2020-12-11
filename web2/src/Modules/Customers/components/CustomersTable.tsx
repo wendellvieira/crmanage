@@ -2,7 +2,7 @@ import React from 'react'
 
 import {BsPhone} from 'react-icons/bs'
 import {AiOutlinePhone} from 'react-icons/ai'
-import {VscEdit, VscTrash} from 'react-icons/vsc'
+import {VscEdit} from 'react-icons/vsc'
 
 import {Table, Button} from 'antd'
 import {ColumnType} from 'antd/lib/table'
@@ -10,12 +10,12 @@ import {ColumnType} from 'antd/lib/table'
 import {CenterCell, CntItem, CntActions} from 'Modules/Customers/styles'
 
 import {Customer, queryCustomer} from 'Types'
+import TrashButton from './TrashButton'
 
 const ColumnsTableCustomers: ColumnType<Partial<Customer>>[] = [
     {
         title: 'Nome',
         key: 'nome',
-        // eslint-disable-next-line react/display-name
         render: (notUsed, item) => (
             <CntItem>
                 {item.nome}
@@ -26,7 +26,6 @@ const ColumnsTableCustomers: ColumnType<Partial<Customer>>[] = [
     {
         title: 'Contatos',
         key: 'phone',
-        // eslint-disable-next-line react/display-name
         render: (notUsed, item) => (
             <>
                 {!!item.celular && (
@@ -45,7 +44,6 @@ const ColumnsTableCustomers: ColumnType<Partial<Customer>>[] = [
     {
         title: 'Endereço',
         key: 'address',
-        // eslint-disable-next-line react/display-name
         render: (notUsed, item) => (
             <CntItem>
                 {item.logradouro}, {item.bairro}, Nº{item.numero}
@@ -56,11 +54,10 @@ const ColumnsTableCustomers: ColumnType<Partial<Customer>>[] = [
     {
         title: 'Ações',
         key: 'actions',
-        // eslint-disable-next-line react/display-name
-        render: () => (
+        render: (notUsed, item) => (
             <CntActions>
                 <Button type="primary" ghost icon={<VscEdit />} />
-                <Button danger icon={<VscTrash />} />
+                <TrashButton customerId={item.id} />
             </CntActions>
         ),
     },
