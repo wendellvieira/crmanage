@@ -1,48 +1,50 @@
-import { Column, Entity, ObjectIdColumn, ObjectID } from "typeorm";
+import { Document } from 'mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
-@Entity("custumers")
+@Schema()
 export default class Customer {
 
-    @ObjectIdColumn()
-    id?: ObjectID;
-
-    @Column()
+    @Prop()
     nome?: string;
 
-    @Column()
+    @Prop()
     email?: string;
 
-    @Column()
+    @Prop()
     telefone?: string;
 
-    @Column()
+    @Prop()
     celular?: string;
 
-    @Column()
+    @Prop()
     cpf?: string;
 
 
-    @Column()
+    @Prop()
     bairro?: string;
 
-    @Column()
+    @Prop()
     cep?: string;
 
-    @Column()
+    @Prop()
     complemento?: string;
 
-    @Column()
+    @Prop()
     localidade?: string;
 
-    @Column()
+    @Prop()
     logradouro?: string;
 
-    @Column()
+    @Prop()
     numero?: string;
 
-    @Column()
+    @Prop()
     referencia?: string;
 
-    @Column()
+    @Prop()
     uf?: string;
 }
+
+export type CustomerDocument = Customer & Document
+
+export const CustomerSchema = SchemaFactory.createForClass(Customer)

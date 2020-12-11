@@ -27,4 +27,16 @@ export class CustomersService {
         return customer
     }
 
+    async delete(id: string): Promise<boolean>{
+        try {  
+            console.log( id )          
+            const repository = getMongoRepository(Customer)
+            const resp = await repository.findOneAndDelete({id})
+            console.log(resp)
+            return true
+        } catch (error) {
+            return false
+        }
+    }
+
 }

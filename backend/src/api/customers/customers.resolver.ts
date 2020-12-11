@@ -18,4 +18,9 @@ export class CustomersResolver {
         return await this.customersService.create(data)
     }
 
+    @Mutation(() => Boolean, { name: 'deleteCustomer'})
+    async deleteCustomer( @Args('id') id: string ){
+        return await this.customersService.delete(id)
+    }
+
 }
